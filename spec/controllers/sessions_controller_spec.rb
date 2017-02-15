@@ -15,7 +15,7 @@ describe SessionsController do
       end
 
       it ": must log into application" do
-        params = {:email_id => "admin@hms.com", :password => "abc123"}
+        params = {:email_id => "caro@yahoo.com", :password => "abc123"}
         put :create, :session => params
         controller.should be_has_signed
       end

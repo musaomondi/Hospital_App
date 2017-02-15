@@ -19,7 +19,7 @@
       <% patients.each do |patient|%>
           <tr>
             <td><%= patient.id%></td>
-            <td><%= patient.created_at_string%></td>
+            <td><%= patient.created_at%></td>
             <td><%= link_to "#{patient.first_name} #{patient.last_name}", patient%></td>
             <td><%= patient.email_id%></td>
             <td><%= patient.phone%></td>

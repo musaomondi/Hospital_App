@@ -44,7 +44,7 @@ class HmsPdfDocument < Prawn::Document
           :column_widths => {0 => 70, 1 => 75, 2 => 77, 3 => 250, 4 => 68}, :row_colors => ["d5d5d5"])
     @user_patients.each do|up|
       total_bill += up.amount
-      table([["#{up.user.first_name + " " + up.user.last_name}", "#{up.created_at_string}", "#{up.comment_type.comment_type_name}", "#{up.comments}", "#{up.amount}"]],
+      table([["#{up.user.first_name + " " + up.user.last_name}", "#{up.created_at}", "#{up.comment_type.comment_type_name}", "#{up.comments}", "#{up.amount}"]],
             :column_widths => {0 => 70, 1 => 75, 2 => 77, 3 => 250, 4 => 68}, :row_colors => ["ffffff"])
     end
 
@@ -59,7 +59,7 @@ class HmsPdfDocument < Prawn::Document
     table([["Purpose", "Description", "Activity Date", "Bill Amount"]],
           :column_widths => {0 => 80, 1 => 300, 2 => 80, 3 => 80}, :row_colors => ["d5d5d5"])
     @user_patients.each do|up|
-      table([["#{up.comment_type.comment_type_name}", "#{up.comments}", "#{up.created_at_string}", "#{up.amount}"]],
+      table([["#{up.comment_type.comment_type_name}", "#{up.comments}", "#{up.created_at}", "#{up.amount}"]],
             :column_widths => {0 => 80, 1 => 300, 2 => 80, 3 => 80}, :row_colors => ["ffffff"])
     end
   end

@@ -1,5 +1,5 @@
 <div style="padding-left: 30%;padding-top: 10%;">
-<%= form_for(:session, :url => sessions_path) do |s|%>
+<%= form_for(:session, url: login_path) do |s|%>
     <div>
       <%= s.label t(:email_id_label, :scope => :widget_names) %>
       <%= s.text_field :email_id %>

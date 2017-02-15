@@ -35,7 +35,7 @@
     <tr><td><%=t(:email_id, :scope => :table)%></td><td><%= @patient.email_id%></td></tr>
     <tr><td><%=t(:phone, :scope => :table)%></td><td><%= @patient.phone%></td></tr>
     <tr><td><%=t(:date_of_birth, :scope => :table)%></td><td><%= @patient.date_of_birth_string%></td></tr>
-    <tr><td><%=t(:registered_on, :scope => :table)%></td><td><%= @patient.created_at_string%></td></tr>
+    <tr><td><%=t(:registered_on, :scope => :table)%></td><td><%= @patient.created_at%></td></tr>
   </table>
 
    <div id="loadUserPatients">
