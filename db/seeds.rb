@@ -11,3 +11,8 @@ UserType.create!(user_type_name: "STAFF")
 
 User.create!(first_name: "Caroline", last_name: "Amoke", email_id: "caro@yahoo.com", user_type_id: 1, password: "abc123", password_confirmation: "abc123")
 
+CommentType.create!(comment_type_name: "Add surgery")
+CommentType.create!(comment_type_name: "Add prescription")
+CommentType.create!(comment_type_name: "Add medicine")
+
+
