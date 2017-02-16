@@ -1,15 +1,16 @@
-<div style="padding-left: 30%;padding-top: 10%;">
-<%= form_for(:session, url: login_path) do |s|%>
-    <div>
-      <%= s.label t(:email_id_label, :scope => :widget_names) %>
-      <%= s.text_field :email_id %>
+<h1>Log in</h1>
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <%= form_for(:session, url: login_path) do |f| %>
+
+            <%= f.label :email_id %>
+            <%= f.text_field :email_id, class: 'form-control'%>
+
+            <%= f.label :password%>
+            <%= f.password_field :password, class: 'form-control'%>
+
+            <%= f.submit "Log in", class: "btn btn-primary"%>
+
+        <%end%>
     </div>
-    <div>
-      <%= s.label t(:password_label, :scope => :widget_names) %>
-      <%= s.password_field :password %>
-    </div>
-    <div>
-      <%= s.submit t(:login_btn, :scope => :widget_names), :class => "btn"%>
-    </div>
-<% end %>
 </div>
