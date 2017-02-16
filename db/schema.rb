@@ -14,15 +14,15 @@ ActiveRecord::Schema.define(version: 20130914013108) do
 
   create_table "comment_types", force: :cascade do |t|
     t.string   "comment_type_name"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "controllers", force: :cascade do |t|
     t.string   "Sessions"
     t.string   "new"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "patients", force: :cascade do |t|
@@ -31,8 +31,8 @@ ActiveRecord::Schema.define(version: 20130914013108) do
     t.date     "date_of_birth"
     t.string   "phone"
     t.string   "email_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "user_patients", force: :cascade do |t|
@@ -41,15 +41,15 @@ ActiveRecord::Schema.define(version: 20130914013108) do
     t.text     "comments"
     t.decimal  "amount"
     t.integer  "comment_type_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "archive"
   end
 
   create_table "user_types", force: :cascade do |t|
     t.string   "user_type_name"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: :cascade do |t|
@@ -57,8 +57,8 @@ ActiveRecord::Schema.define(version: 20130914013108) do
     t.string   "last_name"
     t.string   "email_id"
     t.integer  "user_type_id"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "encrypted_password"
     t.string   "salt"
   end
