@@ -1,35 +1,20 @@
-<h4><%=t(:search_patient, :scope => :topics)%></h4>
-<div class="row-fluid">
-  <%= form_for :patient, :url => searchPatients_path , :remote => true, :html => {:class => "form well",  :id => "searchForm"} do |p|%>
-      <div class="row-fluid">
-        <div class="control-group span6">
-          <%=p.label t(:patient_id, :scope => :widget_names)%>
-          <%=p.text_field :patient_id%>
-        </div>
-        <div class="control-group span6">
-          <%=p.label t(:email_id_label, :scope => :widget_names)%>
-          <%=p.text_field :email_id%>
-        </div>
-      </div>
-      <div class="row-fluid">
-        <div class="control-group span6">
-          <%=p.label t(:first_name_label, :scope => :widget_names)%>
-          <%=p.text_field :first_name%>
-        </div>
-        <div class="control-group span6">
-          <%=p.label t(:last_name_label, :scope => :widget_names)%>
-          <%=p.text_field :last_name%>
-        </div>
-      </div>
-
-      <div class="row-fluid">
-        <div class="control-group span6">
-          <%=p.submit t(:search, :scope => :widget_names), :class => "btn btn-primary"%>
-        </div>
-      </div>
-  <% end %>
+<h1><%=t(:search_patient, :scope => :topics)%></h1>
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <%= form_for :patient, :url => searchPatients_path , :remote => true, :html => {:class => "form well",  :id => "searchForm"} do |p|%>
+            <%=p.label :patient%>
+            <%=p.text_field :patient_id, class: 'form-control'%>
+            <%=p.label :email_id%>
+            <%=p.text_field :email_id, class: 'form-control'%>
+            <%=p.label :first_name%>
+            <%=p.text_field :first_name, class: 'form-control'%>
+            <%=p.label :last_name%>
+            <%=p.text_field :last_name, class: 'form-control'%>
+            <%=p.submit :search, class: "btn btn-primary"%>
+        <% end %>
+    </div>
 </div>
 
 <div id="patientIndexId">
-  <%= render 'patients/patient', :patients => @patients%>
+    <%= render 'patients/patient', :patients => @patients%>
 </div>

@@ -1,6 +1,7 @@
 #PDF document template especially customized for this application. Uses prawn to generate pdf documents.
 
 require 'prawn'
+require 'prawn/table'
 class HmsPdfDocument < Prawn::Document
   def initialize(purpose, user_patients, viewObj)
     super()
