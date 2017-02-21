@@ -7,6 +7,7 @@ Rails.application.routes.draw do
       end
     end
     root 'sessions#login'
+    get 'login' => 'sessions#login'
     post 'login' => 'sessions#create'
     delete 'sign_out' => 'sessions#destroy'
 
