@@ -24,7 +24,10 @@ class PatientsController < ApplicationController
     @patient =Patient.find(params[:id])
     @user_patients = @patient.user_patients.reverse.paginate(:page => params[:page], :per_page => 5)
     @enableInvoice = @patient.user_patients.where("archive is null").size
-    @message = current_patient.messages.build if logged_in?
+    if logged_in?
+      @message = current_patient.messages.build
+      @feed_items = current_patient.feed.paginate(page: params[:page])
+    end
     @messages = @patient.messages.paginate(page: params[:page])
   end
 

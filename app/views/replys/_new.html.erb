@@ -1,0 +1,7 @@
+<%= form_for :reply, url: replys_path do |f| %>
+    <%# <%= render 'common/error_messages', object: f.object %1> %>
+    <div class="field">
+        <%= f.text_area :content, placeholder: "reply..." %>
+    </div>
+    <%= f.submit "Post", class: "btn btn-primary" %>
+<% end %>

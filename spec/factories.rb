@@ -20,6 +20,10 @@ FactoryGirl.define do
 end
 
 FactoryGirl.define do
+  factory :reply do
+    content "MyString"
+    message nil
+  end
   factory :message do
     content "MyText"
     patient nil

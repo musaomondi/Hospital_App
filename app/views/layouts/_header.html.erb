@@ -43,6 +43,7 @@
                     <% end %>
                 </ul>
             </li>
+            <li><%= link_to 'messages', messages_path %></li>
             <li> <%= link_to "Log out", sign_out_path, method: "delete", :style=>"padding-left: 25%;"%></li>
         <% elsif logged_in? %>
             <%= link_to "Log out", sign_out_path, method: "delete", :style=>"padding-left: 25%;"%>

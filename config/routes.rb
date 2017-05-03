@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     get 'loginpat' => 'sessions#new_pat'
     post 'loginpat' => 'sessions#createpat'
     resources :messages
+    resources :replys
     resources :patients  do
       member do
         get :generate_invoice

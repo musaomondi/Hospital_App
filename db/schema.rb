@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170503080627) do
+ActiveRecord::Schema.define(version: 20170503095543) do
 
   create_table "comment_types", force: :cascade do |t|
     t.string   "comment_type_name"
@@ -42,6 +42,14 @@ ActiveRecord::Schema.define(version: 20170503080627) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "password_digest"
+  end
+
+  create_table "replies", force: :cascade do |t|
+    t.string   "content"
+    t.integer  "message_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["message_id"], name: "index_replies_on_message_id"
   end
 
   create_table "user_patients", force: :cascade do |t|
