@@ -6,7 +6,5 @@ class CreateMessages < ActiveRecord::Migration[5.0]
 
       t.timestamps
     end
-    add_foreign_key :patients, :patient
-    add_index :messages, [:patient_id, :created_at]
   end
 end
