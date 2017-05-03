@@ -1,7 +1,7 @@
 #Controller responsible for monitoring all patient related activities.
 
 class PatientsController < ApplicationController
-  before_filter :authenticate
+  # before_filter :authenticate
 
   #Action method to show create page with empty patient object initialized.
   def new
@@ -12,7 +12,7 @@ class PatientsController < ApplicationController
   def create
     @patient = Patient.new(patient_params)
     if @patient.save
-      redirect_to @patient, :flash => {:success => t(:create_patient, :scope => :messages)}
+      redirect_to users_path, :flash => {:success => t(:create_patient, :scope => :messages)}
     else
       render 'new'
     end
@@ -24,6 +24,8 @@ class PatientsController < ApplicationController
     @patient =Patient.find(params[:id])
     @user_patients = @patient.user_patients.reverse.paginate(:page => params[:page], :per_page => 5)
     @enableInvoice = @patient.user_patients.where("archive is null").size
+    @message = current_patient.messages.build if logged_in?
+    @messages = @patient.messages.paginate(page: params[:page])
   end
 
   #default page to show all users registered for this application.
@@ -91,6 +93,6 @@ class PatientsController < ApplicationController
   end
   private
   def patient_params
-    params.require(:patient).permit(:first_name, :last_name, :date_of_birth, :phone, :email_id)
+    params.require(:patient).permit(:first_name, :last_name, :date_of_birth, :phone, :email_id, :password, :password_confirmation)
   end
 end

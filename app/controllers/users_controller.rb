@@ -1,10 +1,13 @@
 #This controller is responsible for creation/updation of the Users.
 
 class UsersController < ApplicationController
-  before_filter :authenticate
+  before_filter :authenticate, :except => [:home]
   before_filter :correct_user, :only => [:edit, :update, :change_password, :update_password]
   before_filter :authenticate_admin, :only => [:create, :index, :new]
 
+  def home
+    @message = current_patient.messages.build if logged_in?
+  end
   #Action to render add user page.
   def new
     @user = User.new

@@ -16,7 +16,9 @@ module SessionsHelper
     session[:user_id] = [user.id, user.salt]
     self.current_user = user
   end
-
+  def logg_in(patient)
+    session[:patient_id] = patient.id
+  end
   def current_user=(user)
     @current_user = user
   end
@@ -25,18 +27,24 @@ module SessionsHelper
     return current_user == user
   end
 
+  # def logged_in?
+  #   !current_user.nil? || !current_patient.nil?
+  # end
   def has_signed?
-    if(self.current_user.blank? || self.current_user == nil)
-      return false
-    else
-      return true
-    end
+    !current_user.nil?
+  end
+  def logged_in?
+    !current_patient.nil?
   end
 
   def current_user
     @current_user = remember_from_session
   end
-
+  def current_patient
+    if (patient_id = session[:patient_id])
+      @current_patient ||= Patient.find_by(id: patient_id)
+    end
+  end
   def sign_out
     reset_session
     self.current_user = nil

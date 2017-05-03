@@ -20,6 +20,10 @@ FactoryGirl.define do
 end
 
 FactoryGirl.define do
+  factory :message do
+    content "MyText"
+    patient nil
+  end
   factory :user_patient do 
     amount "100"
     association :user

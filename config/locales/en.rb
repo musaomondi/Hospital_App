@@ -2,7 +2,7 @@
     :en =>
         {
             :widget_names => {
-                :product_name => "Hospital Management System",
+                :product_name => "Patient follow up System",
                 :sign_out_name => "Sign out",
                 :view => "View",
                 :edit => "Edit",

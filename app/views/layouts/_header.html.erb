@@ -43,9 +43,9 @@
                     <% end %>
                 </ul>
             </li>
-        <% end %>
-        <% if has_signed? == true && @page_name != SessionsHelper::LOGIN%>
             <li> <%= link_to "Log out", sign_out_path, method: "delete", :style=>"padding-left: 25%;"%></li>
+        <% elsif logged_in? %>
+            <%= link_to "Log out", sign_out_path, method: "delete", :style=>"padding-left: 25%;"%>
         <% else %>
             <%= link_to "Log in", root_path , :style=>"padding-left: 40%;"%>
         <% end %>

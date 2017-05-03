@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130914013108) do
+ActiveRecord::Schema.define(version: 20170503042543) do
 
   create_table "comment_types", force: :cascade do |t|
     t.string   "comment_type_name"
@@ -25,6 +25,15 @@ ActiveRecord::Schema.define(version: 20130914013108) do
     t.datetime "updated_at"
   end
 
+  create_table "messages", force: :cascade do |t|
+    t.text     "content"
+    t.integer  "patient_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["patient_id", "created_at"], name: "index_messages_on_patient_id_and_created_at"
+    t.index ["patient_id"], name: "index_messages_on_patient_id"
+  end
+
   create_table "patients", force: :cascade do |t|
     t.string   "first_name"
     t.string   "last_name"
@@ -33,6 +42,7 @@ ActiveRecord::Schema.define(version: 20130914013108) do
     t.string   "email_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "password_digest"
   end
 
   create_table "user_patients", force: :cascade do |t|

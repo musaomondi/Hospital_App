@@ -6,11 +6,13 @@ Rails.application.routes.draw do
         put :update_password
       end
     end
-    root 'sessions#login'
+    root 'users#home'
     get 'login' => 'sessions#login'
     post 'login' => 'sessions#create'
     delete 'sign_out' => 'sessions#destroy'
-
+    get 'loginpat' => 'sessions#new_pat'
+    post 'loginpat' => 'sessions#createpat'
+    resources :messages
     resources :patients  do
       member do
         get :generate_invoice

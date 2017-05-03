@@ -15,7 +15,7 @@ class ReportsController < ApplicationController
       @user_type_admin = UserType.find_by_user_type_name(SessionsHelper::ADMIN)
       @users = User.where("user_type_id = ? or user_type_id = ?", @user_type.id, @user_type_admin.id)
     else
-      @users = User.find_all_by_user_type_id(@user_type.id)
+      @users = User.find_by_user_type_id(@user_type.id)
     end
     pre_populate_reports
     @type = params[:type]

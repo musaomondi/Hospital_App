@@ -9,9 +9,9 @@ describe SessionsController do
         response.should be_success
       end
 
-      it ": must have application name as title (Hospital Management System)" do
+      it ": must have application name as title (Patient follow up System)" do
         get 'login'
-        response.should have_selector("title", :content => "Hospital Management System")
+        response.should have_selector("title", :content => "Patient follow up System")
       end
 
       it ": must log into application" do
